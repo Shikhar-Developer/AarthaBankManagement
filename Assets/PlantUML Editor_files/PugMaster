@@ -1,0 +1,1 @@
+PubMatic.loadAsyncImagePixel('https://pixel.tapad.com/idsync/ex/receive?partner_id=3371&partner_device_id=8E2949A2-B38F-47BF-8A3A-5B2AC9590558');PubMatic.PugMasterCallback(false, false, true);
