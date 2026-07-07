@@ -10,23 +10,29 @@ class WelcomePage(QWidget):
 
         #Buttons on Welcome page
         self.loginBtn = QPushButton("Login")
-        self.signUpBtn = QPushButton("Signup")
+        self.registerBtn = QPushButton("Register")
 
         #Button Beautification
         self.loginBtn.setStyleSheet("min-width: 100px; max-width: 150px; max-height: 40px;")
-        self.signUpBtn.setStyleSheet("min-width: 100px; max-width: 150px; max-height: 40px;")
+        self.registerBtn.setStyleSheet("min-width: 100px; max-width: 150px; max-height: 40px;")
 
 
         #Widget carrying a Horizontal Layout carrying the buttons
         self.buttonWidget = QWidget()
         hLayout = QHBoxLayout(self.buttonWidget)
         hLayout.addWidget(self.loginBtn)
-        hLayout.addWidget(self.signUpBtn)
+        hLayout.addWidget(self.registerBtn)
 
         #Vertical Layout carrying label and buttonWidget
         layout = QVBoxLayout(self)
         layout.addWidget(self.welcomeLabel, alignment=Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.buttonWidget)
+
+    def loginBtnClicked(self, callback):
+        self.loginBtn.clicked.connect(callback)
+
+    def registerBtnClicked(self, callback):
+        self.registerBtn.clicked.connect(callback)
 
 
     

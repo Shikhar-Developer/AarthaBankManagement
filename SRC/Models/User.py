@@ -8,6 +8,8 @@ class User:
     dob: date
     gender: str
     email: str
+    mobno: str
+    address: str
     aadharNumber: str
     panNumber: str
     userId: Optional[int] = None

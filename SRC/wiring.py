@@ -1,5 +1,3 @@
-from AppContainer import Container
-
-
-def configureControllers(container: Container):
-    pass
+def configureControllers(container):
+    container.welcomePageController.setUp()
+    container.registrationController.setup()
