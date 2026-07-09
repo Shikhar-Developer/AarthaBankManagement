@@ -3,7 +3,7 @@ class DatabaseConnectionError(Exception):
 
 class DuplicateError(Exception):
     def __init__(self, msg, keyName):
-        super.__init__(msg)
+        super().__init__(msg)
         self.msg = msg
         self.field = keyName
 

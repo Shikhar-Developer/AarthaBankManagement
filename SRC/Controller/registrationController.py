@@ -30,10 +30,10 @@ class RegistrationController:
             self.view.show_error_message("Database Faliure, Closing Application!")
             self.view.closeApp()
         except InvalidEmailFormatError:
-            self.view.clearFields(RF.EMAIL)
+            self.view.clearFields([RF.EMAIL])
             self.view.show_error_message("Email format Invalid! Retry again")
         except AgeInvalidError:
-            self.view.clearFields(RF.DOB)
+            self.view.clearFields([RF.DOB])
             self.show_error_message("Invalid Age! Users must be greater than 18 years of age.")
         else:
             self.view.show_confirmation("Registration Completed Kindly get verified at Admin Desk")
