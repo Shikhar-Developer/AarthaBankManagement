@@ -1,6 +1,5 @@
 from Models.RegistrationData import RegistrationData
-from Models.Enums.userUniqueFields import UserUniqueFields as uuf
-from Models.Enums.RegistrationFields import RegistrationFields as rf
+from Models.Enums.constants import RegistrationFields as rf, UserUniqueFields as uuf
 from Exceptions.RegistrationErrors import InvalidEmailFormatError, AgeInvalidError
 from Exceptions.DatabaseErrors import DuplicateError
 from Models.User import User
@@ -8,8 +7,9 @@ from datetime import date
 import re
 
 class RegistrationService:
-    def __init__(self, repository):
+    def __init__(self, repository, sessionCookie = None):
         self.repository = repository
+        self.sessionCookie = sessionCookie
 
     """
         Check if User email is in valid form

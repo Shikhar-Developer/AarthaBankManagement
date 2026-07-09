@@ -1,1 +1,4 @@
 Check all duplicates before insert for avoiding one on one duplicate errors.
+Search unverified user from pending request.
+Auto generate a username and paaword.
+only verifed user can login

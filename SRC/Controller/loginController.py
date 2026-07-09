@@ -1,0 +1,31 @@
+from Models.Enums.constants import LoginFields as Login, Page
+from Exceptions.AuthenticationErrors import IncorrectCredentialsError, UserNotFoundError
+from Exceptions.DatabaseErrors import DatabaseError
+
+class LoginController:
+    def __init__(self, view, navigationMethod, service, sessionContext):
+        self.view = view
+        self.navigate = navigationMethod 
+        self.service = service
+        self.sessionContext = sessionContext
+
+    def setup(self):
+        self.view.on_login_button_clicked(self.submitCredentials)
+
+    def submitCredentials(self):
+        credentials = self.view.getCredentials()
+        try:
+            self.service.login(username = credentials[Login.USERNAME], password=credentials[Login.PASSWORD])
+        except UserNotFoundError:
+            self.view.clearfields()
+            self.view.show_error_message("Invalid UserNames or Password")
+        except IncorrectCredentialsError as error:
+            self.view.clearfields()
+            self.view.show_error_message("Invalid UserName or Passwords")
+        except DatabaseError as error:
+            with open("databaseerrorlog.txt", "a") as file: file.write(str(error))
+            self.view.show_error_message("Database Error Occured")
+            self.view.closeApp() 
+        else:
+            self.navigate(Page.ROLE)
+        

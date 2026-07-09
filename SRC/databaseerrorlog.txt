@@ -1,4 +1,3 @@
-Database Operation failed!Database Operation failed!
 Database Operation failed!
 Database Operation failed!
 Database Operation failed!
@@ -10,3 +9,4 @@ Database Operation failed!
 Database Operation failed!
 Database Operation failed!
 Database Operation failed!
+1054 (42S22): Unknown column 'PASSWORD' in 'field list'

@@ -1,8 +1,9 @@
-from PySide6.QtWidgets import QMainWindow, QStackedWidget
-from Models.Enums.Pages import Page
+from PySide6.QtWidgets import QMainWindow, QStackedWidget, QWidget
+from Models.Enums.constants import Page
 from UI.pages.welcomePage import WelcomePage 
 from UI.pages.registrationPage import RegistrationPage
 from UI.pages.loginPage import LoginPage
+from UI.pages.rolesPage import RolesPage
 
 class MainWindow(QMainWindow):
 
@@ -13,6 +14,10 @@ class MainWindow(QMainWindow):
         self.welcomePage = WelcomePage()
         self.registrationPage = RegistrationPage()
         self.loginPage = LoginPage()
+        self.rolePage = RolesPage()
+        self.adminDashBoard = QWidget()
+        self.customerDashBoard = QWidget()
+        self.branchManagerDashBoard = QWidget()
 
         #A fast enum based Widget LookUp
         self.pages = self.createLookUp()
@@ -21,20 +26,20 @@ class MainWindow(QMainWindow):
         self.stack = QStackedWidget()
         for page in self.pages:
             self.stack.addWidget(self.pages[page])
-        # self.stack.addWidget(self.welcomePage)
-        # self.stack.addWidget(self.registrationPage)
 
         self.setCentralWidget(self.stack)
         self.stack.setCurrentWidget(self.welcomePage)
 
     def createLookUp(self):
         return {
-            Page.WELCOME       : self.welcomePage,
-            Page.REGISTRATION  : self.registrationPage,
-            Page.LOGIN         : self.loginPage
+            Page.WELCOME                    : self.welcomePage,
+            Page.REGISTRATION               : self.registrationPage,
+            Page.LOGIN                      : self.loginPage,
+            Page.ROLE                       : self.rolePage,
+            Page.CUSTOMER_DASHBOARD         : self.customerDashBoard,
+            Page.ADMIN_DASHBOARD            : self.adminDashBoard,
+            Page.BRANCH_MANAGER_DASHBOARD   : self.branchManagerDashBoard
         }
 
     def changePage(self, page: Page):
         self.stack.setCurrentWidget(self.pages[page])
- 
-

@@ -1,9 +1,10 @@
-from Models.Enums.Pages import Page
+from Models.Enums.constants import Page
 class navController:
-    def __init__(self, mainWindow, service = None):
-        self.mainWindow = mainWindow
+    def __init__(self, changePageMethod, service = None):
+        self.changePage = changePageMethod
         self.service = service
 
     def navigate(self, page:Page):
-        self.mainWindow.changePage(page)
+        self.changePage(page)
+        
         

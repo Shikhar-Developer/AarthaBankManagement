@@ -1,5 +1,4 @@
-from Models.Enums.Pages import Page
-from Models.Enums.RegistrationFields import RegistrationFields as RF
+from Models.Enums.constants import Page, RegistrationFields as RF
 from Models.RegistrationData import RegistrationData
 from Exceptions.DatabaseErrors import DatabaseError, DuplicateError
 from Exceptions.RegistrationErrors import InvalidEmailFormatError, AgeInvalidError

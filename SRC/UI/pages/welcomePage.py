@@ -7,6 +7,7 @@ class WelcomePage(QWidget):
 
         # Welcome Label at the top
         self.welcomeLabel = QLabel("Welcome")
+        self.welcomeLabel.setStyleSheet("font-size:20px; font-weight:700px")
 
         #Buttons on Welcome page
         self.loginBtn = QPushButton("Login")
