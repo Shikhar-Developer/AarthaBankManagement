@@ -1,9 +1,9 @@
 from PySide6.QtWidgets import QMainWindow, QStackedWidget, QWidget
 from Models.Enums.constants import Page
-from UI.pages.welcomePage import WelcomePage 
-from UI.pages.registrationPage import RegistrationPage
-from UI.pages.loginPage import LoginPage
-from UI.pages.rolesPage import RolesPage
+from Auth.UI.welcomePage import WelcomePage 
+from Auth.UI.registrationPage import RegistrationPage
+from Auth.UI.loginPage import LoginPage
+from Auth.UI.rolesPage import RolesPage
 
 class MainWindow(QMainWindow):
 

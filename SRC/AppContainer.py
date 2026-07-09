@@ -1,12 +1,12 @@
-from UI.MainWindow import MainWindow
+from Auth.UI.MainWindow import MainWindow
 
 from Session.SessionContext import SessionContext
 
-from Controller.welcomePageController import WelcomeController
-from Controller.navigationController import navController
-from Controller.registrationController import RegistrationController
-from Controller.loginController import LoginController
-from Controller.rolesController import RolesController
+from Auth.Controller.welcomePageController import WelcomeController
+from Auth.Controller.navigationController import navController
+from Auth.Controller.registrationController import RegistrationController
+from Auth.Controller.loginController import LoginController
+from Auth.Controller.rolesController import RolesController
 
 from Service.registrationService import RegistrationService
 from Service.AuthenticationService import AuthenticationService
@@ -70,3 +70,5 @@ class Container:
 
     def getMainWindow(self):
         return self.mainWindow
+
+    
