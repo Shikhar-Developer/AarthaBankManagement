@@ -40,7 +40,7 @@ class UserRepository:
         cursor = self.conobj.cursor()
 
         try:
-            qrystr = "INSERT INTO USER (USER_ID, NAME, DOB, GENDER, EMAIL, MOBILE_NUMBER, ADDRESS, AADHAR_NUMBER, PAN_NUMBER) VALUES (%s,%s, %s, %s, %s, %s, %s, %s, %s)" 
+            qrystr = "INSERT INTO USER (NAME, DOB, GENDER, EMAIL, MOBILE_NUMBER, ADDRESS, AADHAR_NUMBER, PAN_NUMBER) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)" 
             cursor.execute(qrystr, (user.name, user.dob, user.gender, user.email, user.mobno, user.address, user.aadharNumber, user.panNumber))
             self.conobj.commit()
         except sqltor.IntegrityError as error:

@@ -20,3 +20,4 @@ try:
     print("Test user created successfully!")
 finally:
     cursor.close()
+

@@ -9,4 +9,4 @@ Database Operation failed!
 Database Operation failed!
 Database Operation failed!
 Database Operation failed!
-1054 (42S22): Unknown column 'PASSWORD' in 'field list'
+1054 (42S22): Unknown column 'PASSWORD' in 'field list'Not enough parameters for the SQL statement
