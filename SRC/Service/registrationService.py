@@ -2,9 +2,10 @@ from Domain.DTO.RegistrationData import RegistrationData
 from Domain.Enum.constants import RegistrationFields as rf, UserUniqueFields as uuf
 from Infrastructure.Exceptions.DatabaseErrors import DuplicateError
 from Domain.Models.User import User
+from Repository.UserRepository import UserRepository
 
 class RegistrationService:
-    def __init__(self, repository):
+    def __init__(self, repository: UserRepository):
         self.repository = repository
 
     def register(self, data: RegistrationData):
@@ -22,6 +23,8 @@ class RegistrationService:
 
 
 # Now User doesn't let wrong user get created! 
+# Services as use case corrdinator
+
             
 
 

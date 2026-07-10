@@ -1,6 +1,7 @@
 from Session.SessionContext import SessionContext
 from Infrastructure.Persistence.MySQLUserRepository import MySQLUserRepository
 from Infrastructure.Database.config import Connection
+from Infrastructure.Security.BcryptHasher import BcryptHasher
 from Auth.authContainer import AuthContainer
 
 class AppContainer:
@@ -14,9 +15,12 @@ class AppContainer:
  
         #Repository : User Respository
         self.userRepository = MySQLUserRepository(self.conobj)
- 
+
+        #Password hasher
+        self.passwordHasher = BcryptHasher()
+
         #AuthContainer Intialization
-        self.authContainer = AuthContainer(self.userRepository, self.sessionContext) 
+        self.authContainer = AuthContainer(self.userRepository, self.sessionContext, self.passwordHasher) 
 
 
     def getStartWindow(self):

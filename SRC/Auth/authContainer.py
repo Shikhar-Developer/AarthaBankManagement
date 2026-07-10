@@ -14,13 +14,13 @@ from Domain.Enum.constants import Page
 
 
 class AuthContainer:
-    def __init__(self, userRepository, sessionContext):
+    def __init__(self, userRepository, sessionContext, passwordHasher):
         #Get a main window
         self.mainWindow = MainWindow()
 
         #Service
         self.registrationService = RegistrationService(userRepository)
-        self.loginService = AuthenticationService(userRepository, sessionContext)
+        self.loginService = AuthenticationService(userRepository, passwordHasher, sessionContext)
         self.rolesService = RolesService(sessionContext, None)
 
         #Controller
