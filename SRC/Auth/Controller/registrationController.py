@@ -34,7 +34,7 @@ class RegistrationController:
             self.view.show_error_message("Email format Invalid! Retry again")
         except AgeInvalidError:
             self.view.clearFields([RF.DOB])
-            self.show_error_message("Invalid Age! Users must be greater than 18 years of age.")
+            self.view.show_error_message("Invalid Age! Users must be greater than 18 years of age.")
         else:
             self.view.show_confirmation("Registration Completed Kindly get verified at Admin Desk")
             self.show_welcome_page()
