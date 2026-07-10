@@ -6,10 +6,14 @@ class RolesController:
         self.navigate = navigationMethod
         self.service = service
         self.sessionContext = sessionContext
+        self.moduleTransiton = None
 
     def setup(self):
         self.view.on_next_button_clicked(self.toDashBoard)
         self.view.on_view_shown(self.sendRoles)
+
+    def setTransitionMethod(self, callback):
+        self.moduleTransiton = callback
     
     def toDashBoard(self):
         role = self.view.choice()
@@ -21,12 +25,8 @@ class RolesController:
         self.view.removeRoles()
         self.service.updateRole(role)
         
-        if(role == Roles.CUSTOMER):
-            self.navigate(Page.CUSTOMER_DASHBOARD)
-        if(role == Roles.ADMIN):
-            self.navigate(Page.ADMIN_DASHBOARD)
-        if(role == Roles.BRANCH_MANAGER):
-            self.navigate(Page.BRANCH_MANAGER_DASHBOARD)
+        #Transition To requested Dashboard
+        self.moduleTransiton(role)
         
 
     def sendRoles(self):

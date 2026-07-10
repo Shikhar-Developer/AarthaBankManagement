@@ -38,7 +38,7 @@ class MySQLUserRepository(UserRepository):
 
     def find_by_username(self, username):
         cursor = self.conobj.cursor()
-        qry = "SELECT USER_ID, PASSWORD_HASH, LOCK_UNITL FROM USERAUTH WHERE USERNAME = %s"
+        qry = "SELECT USER_ID, PASSWORD_HASH, LOCK_UNTIL FROM USERAUTH WHERE USERNAME = %s"
         try:
             cursor.execute(qry, (username,))
             result = cursor.fetchone()

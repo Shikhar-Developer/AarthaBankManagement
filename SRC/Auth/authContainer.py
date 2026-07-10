@@ -55,6 +55,9 @@ class AuthContainer:
 
     def getMainWindow(self):
         return self.mainWindow
+    
+    def setTransitionMethod(self, callback):
+        self.rolesController.setTransitionMethod(callback)
 
     def configureControllers(self):
         self.welcomePageController.setUp()

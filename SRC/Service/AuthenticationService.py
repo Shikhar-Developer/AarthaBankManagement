@@ -13,8 +13,8 @@ class AuthenticationService:
         
     def getUserId(self, username, password):
         authDetails = self.repository.find_by_username(username)
-        if not authDetails.is_locked():
-            raise AccountLockedError
+        if authDetails.is_locked(datetime.now()):
+            raise AccountLockedError("Your Account is Locked!")
         if not self.passwordHasher.verifyPassword(password, authDetails.Password_hash):
             raise IncorrectCredentialsError("Incorrect username or password!")
         return authDetails.UserId

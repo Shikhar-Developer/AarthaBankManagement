@@ -11,6 +11,7 @@ class LoginController:
 
     def setup(self):
         self.view.on_login_button_clicked(self.submitCredentials)
+        self.view.on_back_button_clicked(self.backBtnClicked)
 
     def submitCredentials(self):
         credentials = self.view.getCredentials()
@@ -31,4 +32,7 @@ class LoginController:
             self.view.closeApp() 
         else:
             self.navigate(Page.ROLE)
+
+    def backBtnClicked(self):
+        self.navigate(Page.WELCOME)
         
