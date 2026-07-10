@@ -1,5 +1,5 @@
 from Domain.Enum.constants import LoginFields as Login, Page
-from Domain.Exceptions.AuthenticationErrors import IncorrectCredentialsError, UserNotFoundError
+from Domain.Exceptions.AuthenticationErrors import IncorrectCredentialsError, UserNotFoundError, AccountLockedError
 from Infrastructure.Exceptions.DatabaseErrors import DatabaseError
 
 class LoginController:
@@ -22,6 +22,9 @@ class LoginController:
         except IncorrectCredentialsError as error:
             self.view.clearfields()
             self.view.show_error_message("Invalid UserName or Passwords")
+        except AccountLockedError as error:
+            self.view.clearfields()
+            self.view.show_error_message(error.msg)
         except DatabaseError as error:
             with open("databaseerrorlog.txt", "a") as file: file.write(str(error))
             self.view.show_error_message("Database Error Occured")

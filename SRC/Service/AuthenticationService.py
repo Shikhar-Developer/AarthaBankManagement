@@ -1,6 +1,6 @@
 from Infrastructure.Exceptions.DatabaseErrors import RecordNotFoundError 
 from Domain.Exceptions.AuthenticationErrors import UserNotFoundError
-from Domain.Exceptions.AuthenticationErrors import IncorrectCredentialsError
+from Domain.Exceptions.AuthenticationErrors import IncorrectCredentialsError, AccountLockedError
 from Security.passwordHasher import PasswordHasher
 from Domain.Enum.constants import Roles
 from datetime import datetime
@@ -12,13 +12,12 @@ class AuthenticationService:
         self.passwordHasher = passwordHasher
         
     def getUserId(self, username, password):
-        try:
-            authDetails = self.repository.find_by_username(username)
-            if not self.passwordHasher.verifyPassword(password, authDetails.Password_hash):
-                raise IncorrectCredentialsError("Incorrect username or password!")
-            return authDetails.UserId
-        except RecordNotFoundError as error:
-            raise UserNotFoundError(error.msg) from error
+        authDetails = self.repository.find_by_username(username)
+        if not authDetails.is_locked():
+            raise AccountLockedError
+        if not self.passwordHasher.verifyPassword(password, authDetails.Password_hash):
+            raise IncorrectCredentialsError("Incorrect username or password!")
+        return authDetails.UserId
 
     def login(self, username, password):
         uId   = self.getUserId(username, password)

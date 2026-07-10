@@ -3,7 +3,8 @@ from Domain.Models.User import User
 from Domain.Models.AuthUser import AuthUser
 import mysql.connector as sqltor
 from Domain.Enum.constants import UserUniqueFields as uuf
-from Infrastructure.Exceptions.DatabaseErrors import DuplicateError, DatabaseError, RecordNotFoundError
+from Infrastructure.Exceptions.DatabaseErrors import DuplicateError, DatabaseError
+from Domain.Exceptions.AuthenticationErrors import UserNotFoundError
 from datetime import date
 
 class MySQLUserRepository(UserRepository):
@@ -37,13 +38,13 @@ class MySQLUserRepository(UserRepository):
 
     def find_by_username(self, username):
         cursor = self.conobj.cursor()
-        qry = "SELECT USER_ID, PASSWORD_HASH FROM USERAUTH WHERE USERNAME = %s"
+        qry = "SELECT USER_ID, PASSWORD_HASH, LOCK_UNITL FROM USERAUTH WHERE USERNAME = %s"
         try:
             cursor.execute(qry, (username,))
             result = cursor.fetchone()
             if not result:
-                raise RecordNotFoundError("No user was found!")
-            return AuthUser(Username=username, UserId=result[0], Password_hash=result[1])
+                raise UserNotFoundError("No user was found!")
+            return AuthUser(Username=username, UserId=result[0], Password_hash=result[1], Lock_until=result[2])
         except sqltor.Error as error:
             raise DatabaseError(str(error))
         finally:
