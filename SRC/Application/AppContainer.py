@@ -1,5 +1,5 @@
 from Session.SessionContext import SessionContext
-from Repository.userRepository import UserRepository
+from Infrastructure.Persistence.MySQLUserRepository import MySQLUserRepository
 from Infrastructure.Database.config import Connection
 from Auth.authContainer import AuthContainer
 
@@ -13,7 +13,7 @@ class AppContainer:
         self.sessionContext = SessionContext(1)
  
         #Repository : User Respository
-        self.userRepository = UserRepository(self.conobj)
+        self.userRepository = MySQLUserRepository(self.conobj)
  
         #AuthContainer Intialization
         self.authContainer = AuthContainer(self.userRepository, self.sessionContext) 
