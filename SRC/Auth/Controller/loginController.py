@@ -1,6 +1,6 @@
-from Models.Enums.constants import LoginFields as Login, Page
-from Exceptions.AuthenticationErrors import IncorrectCredentialsError, UserNotFoundError
-from Exceptions.DatabaseErrors import DatabaseError
+from Domain.Enum.constants import LoginFields as Login, Page
+from Domain.Exceptions.AuthenticationErrors import IncorrectCredentialsError, UserNotFoundError
+from Infrastructure.Exceptions.DatabaseErrors import DatabaseError
 
 class LoginController:
     def __init__(self, view, navigationMethod, service, sessionContext):

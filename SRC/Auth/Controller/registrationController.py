@@ -1,7 +1,7 @@
-from Models.Enums.constants import Page, RegistrationFields as RF
-from Models.RegistrationData import RegistrationData
-from Exceptions.DatabaseErrors import DatabaseError, DuplicateError
-from Exceptions.RegistrationErrors import InvalidEmailFormatError, AgeInvalidError
+from Domain.Enum.constants import Page, RegistrationFields as RF
+from Domain.DTO.RegistrationData import RegistrationData
+from Infrastructure.Exceptions.DatabaseErrors import DatabaseError, DuplicateError
+from Domain.Exceptions.RegistrationErrors import InvalidEmailFormatError, AgeInvalidError
 
 class RegistrationController:
     def __init__(self, view, navigationMethod, service = None):

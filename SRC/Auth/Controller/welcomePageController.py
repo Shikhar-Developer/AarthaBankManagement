@@ -1,4 +1,4 @@
-from Models.Enums.constants import Page
+from Domain.Enum.constants import Page
 class WelcomeController:
     def __init__(self, view, navigationMethod, service=None):
         self.view = view

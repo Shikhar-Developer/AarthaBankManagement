@@ -1,6 +1,6 @@
 from Session.SessionContext import SessionContext
 from Repository.userRepository import UserRepository
-from Database.config import Connection
+from Infrastructure.Database.config import Connection
 from Auth.authContainer import AuthContainer
 
 class AppContainer:

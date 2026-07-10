@@ -2,7 +2,7 @@ import os
 import mysql.connector as sqltor
 from datetime import datetime
 from dotenv import load_dotenv
-from Exceptions.DatabaseErrors import DatabaseConnectionError
+from Infrastructure.Exceptions.DatabaseErrors import DatabaseConnectionError
 
 #To load Enviornment variables
 load_dotenv()

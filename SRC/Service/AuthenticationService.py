@@ -1,7 +1,7 @@
-from Exceptions.DatabaseErrors import RecordNotFoundError 
-from Exceptions.AuthenticationErrors import UserNotFoundError, IncorrectCredentialsError
-from Models.AuthUser import AuthUser
-from Models.Enums.constants import Roles
+from Infrastructure.Exceptions.DatabaseErrors import RecordNotFoundError 
+from Domain.Exceptions.AuthenticationErrors import UserNotFoundError, IncorrectCredentialsError
+from Domain.Models.AuthUser import AuthUser
+from Domain.Enum.constants import Roles
 from datetime import datetime
 import bcrypt
 

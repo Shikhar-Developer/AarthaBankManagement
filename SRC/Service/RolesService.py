@@ -1,4 +1,4 @@
-from Models.Enums.constants import Roles
+from Domain.Enum.constants import Roles
 
 class RolesService:
     def __init__(self, sessionContext, service = None):

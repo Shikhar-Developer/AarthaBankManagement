@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QApplication
 from Application.AppContainer import AppContainer
 from datetime import datetime
 import sys
-from Exceptions.DatabaseErrors import DatabaseConnectionError
+from Infrastructure.Exceptions.DatabaseErrors import DatabaseConnectionError
 
 
 #Creates Event loop

@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QApplication, QWidget, QLineEdit, QPushButton, QFormLayout, QDateEdit, QVBoxLayout, QHBoxLayout, QLabel, QComboBox, QMessageBox
 from PySide6.QtCore import Qt, QDate
-from Models.Enums.constants import RegistrationFields
+from Domain.Enum.constants import RegistrationFields
 from Auth.UI.Widgets.SequentialMaskedWidgets import MaskedLineEdit
 
 class RegistrationPage(QWidget):

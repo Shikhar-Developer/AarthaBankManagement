@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QMainWindow, QStackedWidget, QWidget
-from Models.Enums.constants import Page
+from Domain.Enum.constants import Page
 from Auth.UI.welcomePage import WelcomePage 
 from Auth.UI.registrationPage import RegistrationPage
 from Auth.UI.loginPage import LoginPage

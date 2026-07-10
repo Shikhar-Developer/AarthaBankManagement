@@ -1,8 +1,8 @@
-from Models.RegistrationData import RegistrationData
-from Models.Enums.constants import RegistrationFields as rf, UserUniqueFields as uuf
-from Exceptions.RegistrationErrors import InvalidEmailFormatError, AgeInvalidError
-from Exceptions.DatabaseErrors import DuplicateError
-from Models.User import User
+from Domain.DTO.RegistrationData import RegistrationData
+from Domain.Enum.constants import RegistrationFields as rf, UserUniqueFields as uuf
+from Domain.Exceptions.RegistrationErrors import InvalidEmailFormatError, AgeInvalidError
+from Infrastructure.Exceptions.DatabaseErrors import DuplicateError
+from Domain.Models.User import User
 from datetime import date
 import re
 

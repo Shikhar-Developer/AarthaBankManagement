@@ -1,8 +1,8 @@
-from Models.User import User
-from Models.AuthUser import AuthUser
+from Domain.Models.User import User
+from Domain.Models.AuthUser import AuthUser
 import mysql.connector as sqltor
-from Models.Enums.constants import UserUniqueFields as uuf
-from Exceptions.DatabaseErrors import DuplicateError, DatabaseError, RecordNotFoundError
+from Domain.Enum.constants import UserUniqueFields as uuf
+from Infrastructure.Exceptions.DatabaseErrors import DuplicateError, DatabaseError, RecordNotFoundError
 from datetime import date
 
 class UserRepository:

@@ -1,4 +1,4 @@
-from Database.config import Connection  # or your preferred DB driver
+from Infrastructure.Database.config import Connection  # or your preferred DB driver
 import mysql.connector
 import bcrypt
 

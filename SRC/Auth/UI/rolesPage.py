@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QWidget, QRadioButton, QPushButton, QVBoxLayout, QLabel, QMessageBox 
 from PySide6.QtCore import Signal, Qt
 
-from Models.Enums.constants import Roles
+from Domain.Enum.constants import Roles
 
 class RolesPage(QWidget):
     view_shown_signal = Signal()

@@ -1,4 +1,4 @@
-from Models.Enums.constants import Page
+from Domain.Enum.constants import Page
 class navController:
     def __init__(self, changePageMethod, service = None):
         self.changePage = changePageMethod

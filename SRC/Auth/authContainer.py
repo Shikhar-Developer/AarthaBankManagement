@@ -10,7 +10,7 @@ from Auth.Controller.registrationController import RegistrationController
 from Auth.Controller.rolesController import RolesController
 from Auth.Controller.welcomePageController import WelcomeController
 
-from Models.Enums.constants import Page
+from Domain.Enum.constants import Page
 
 
 class AuthContainer:

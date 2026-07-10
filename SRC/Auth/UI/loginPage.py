@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QWidget, QPushButton, QLabel, QVBoxLayout, QLineEdit, QMessageBox, QApplication
 from PySide6.QtCore import Qt
-from Models.Enums.constants import LoginFields
+from Domain.Enum.constants import LoginFields
 
 
 class LoginPage(QWidget):

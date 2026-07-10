@@ -1,4 +1,4 @@
-from Models.Enums.constants import Page, Roles
+from Domain.Enum.constants import Page, Roles
 
 class RolesController:
     def __init__(self, view, navigationMethod, service, sessionContext):
